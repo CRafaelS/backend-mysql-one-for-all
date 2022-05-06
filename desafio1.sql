@@ -6,18 +6,18 @@ USE SpotifyClone;
 
 CREATE TABLE Plans(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`name` VARCHAR(100) NOT NULL,
+name_plan VARCHAR(100) NOT NULL,
 price DOUBLE 
 );
 
 CREATE TABLE Artists(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`name` VARCHAR(100) NOT NULL
+name_artist VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Users(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`name` VARCHAR(100) NOT NULL,
+name_user VARCHAR(100) NOT NULL,
 age INT NOT NULL,
 signature_date DATE,
 plan_id INT NOT NULL,
@@ -26,7 +26,7 @@ FOREIGN KEY (plan_id) REFERENCES Plans(id)
 
 CREATE TABLE Albuns(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`name` VARCHAR(100) NOT NULL,
+name_album VARCHAR(100) NOT NULL,
 release_year INT,
 artist_id INT NOT NULL,
 FOREIGN KEY (artist_id) REFERENCES Artists(id)
@@ -34,7 +34,7 @@ FOREIGN KEY (artist_id) REFERENCES Artists(id)
 
 CREATE TABLE Songs(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`name` VARCHAR(100) NOT NULL,
+name_song VARCHAR(100) NOT NULL,
 duration_seconds INT,
 album_id INT NOT NULL,
 FOREIGN KEY (album_id) REFERENCES Albuns(id)
@@ -42,7 +42,7 @@ FOREIGN KEY (album_id) REFERENCES Albuns(id)
 
 CREATE TABLE History(
 id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-reproduction_date DATETIME,
+player_song_date DATETIME,
 song_id INT NOT NULL,
 FOREIGN KEY (song_id) REFERENCES Songs(id),
 user_id INT NOT NULL,
@@ -57,14 +57,14 @@ user_id INT NOT NULL,
 FOREIGN KEY (user_id) REFERENCES Users(id)
 );
 
-INSERT INTO Plans(`name`,price) 
+INSERT INTO Plans(name_plan,price) 
 VALUES
 	('Familiar', 7.99),
 	('Gratuito', 0),
     ('Pessoal', 6.99),
     ('Universitario', 5.99);
     
-INSERT INTO Artists(`name`) 
+INSERT INTO Artists(name_artist) 
 VALUES
 	('Fog'),
     ('Freedie Shannon'),
@@ -73,7 +73,7 @@ VALUES
     ('Tyler Isle '),
     ('Walter Phoenix');
     
-INSERT INTO Users(`name`, age, signature_date, plan_id) 
+INSERT INTO Users(name_user, age, signature_date, plan_id) 
 VALUES
 	('Thati', 23, '2019-10-20', 2),
     ('Cintia', 35, '2017-12-30', 1),
@@ -86,7 +86,7 @@ VALUES
 	('Angelina', 42, '2018-04-29', 1),
 	('Paul', 46, '2017-01-17', 1); 
     
-INSERT INTO Albuns(`name`, release_year, artist_id) 
+INSERT INTO Albuns(name_album, release_year, artist_id) 
 VALUES
 	('Envious', '1990', 6),
     ('Exuberant', '1993', 6),
@@ -99,7 +99,7 @@ VALUES
 	('No guarantees', '2015', 5),
 	('Apparatus', '2015', 1); 
     
-INSERT INTO Songs(`name`, duration_seconds, album_id) 
+INSERT INTO Songs(name_song, duration_seconds, album_id) 
 VALUES
 	('Soul For Us', 200, 1),
 	('Reflections Of Magic', 163, 1),
@@ -142,7 +142,7 @@ VALUES
     ('Baby', 136, 10),
 	('You Make Me Feel So.', 83, 10);
     
-INSERT INTO History( song_id, user_id, reproduction_date)
+INSERT INTO History( song_id, user_id, player_song_date)
 VALUES
 (36, 1, '2020-02-28 10:45:55'),
 (25, 1, '2020-05-02 05:30:35'),
