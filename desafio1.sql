@@ -14,8 +14,8 @@
   VALUES
     ('Familiar', 7.99),
     ('Gratuito', 0),
-      ('Pessoal', 6.99),
-      ('Universitario', 5.99);
+    ('Pessoal', 6.99),
+    ('Universitario', 5.99);
       
 
   CREATE TABLE Artists(
