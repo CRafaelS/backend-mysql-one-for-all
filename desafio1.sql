@@ -27,9 +27,9 @@
   VALUES
     ('Fog'),
     ('Freedie Shannon'),
-    ('Lance Day '),
-    ('Peter Strong '),
-    ('Tyler Isle '),
+    ('Lance Day'),
+    ('Peter Strong'),
+    ('Tyler Isle'),
     ('Walter Phoenix');
       
   CREATE TABLE Users(
